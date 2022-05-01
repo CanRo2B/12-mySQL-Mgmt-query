@@ -12,7 +12,7 @@ VALUES
     ("Sales"),
     ("Accounting");
 
-INSERT INTO dept_role
+INSERT INTO role
     (title, salary, department_id)
 VALUES
 ("Laundry", 40000, 1),
@@ -39,47 +39,47 @@ VALUES
     -- ("Operations Manager", 110000, 3),
     -- ("Lawyer", 90000, 5);
 
-INSERT INTO employees
-    (first_name, last_name, role_id);
+INSERT INTO employee
+    (first_name, last_name, role_id)
 
 VALUES
-    (“Pam”, “Joyce”, 1),
-    (“Sally”, “Lloyd”,3),
-    (“Nancy”, “Johnson”,2),
-    (“John”, “Jason”,3),
-    (“Joe”, “DiMaggio”,1),
-    (“Jimmy”, “Shoe”,2),
-    (“Frank”, “Bean”,4),
-    (“Patrick”, “Mahomes”,4),
-    (“Dustin”, “Hoffman”,5),
-    (“Mary”, “Barker”,5),
-    (“Joseph”, “Fellows”,5),
-    (“Rick”, “Rogers”,6),
-    (“Nikki”, “Farms”,6),
-    (“Maria”, “Tores”, 7)
-    (“Laura”, “Brown”, 9),
-    (“Jesse”, “James”, 7),
-    (“Curtis”, “Allen”, 8),
-    (“Shelby”, “Rodriguez”, 9),
-    (“Kelly”, “Torey”, 10),
-    (“Logan”, “Ryan”, 11),
-    (“JB”, “Scott”, 12),
-    (“Pax”, “Springer”, 12),
-    (“Bobby”, “Jones”,13),
-    (“Clayton”, “Kershaw”,14),
-    (“Mookie”, “Bettes”,16),
-    (“Kiki”, “Hernandez”,16),
-    (“Will”, “Smith”,17),
-    (“Dave”, “Roberts”,18),
-    (“Dan”, “Sutton”,18),
-    (“Chris”, “Taylor”,2),
-    (“Victoria”, “Hilton”,2),
-    (“Franny”, “LaBamba”,3),    
-    (“George”, “Jones”,5),
-    (“Michael”, “Irvin”,7),
-    (“Joc”, “Peterson”,5),
-    (“Andrew”, “Heaney”,7),
-    (“Kara”, “Lux”,15);
+    ("Pam", "Joyce", 1),
+    ("Sally", "Lloyd", 3),
+    ("Nancy", "Johnson", 2),
+    ("John", "Jason", 3),
+    ("Joe", "DiMaggio", 1),
+    ("Jimmy", "Shoe", 2),
+    ("Frank", "Bean", 4),
+    ("Patrick", "Mahomes", 4),
+    ("Dustin", "Hoffman", 5),
+    ("Mary", "Barker", 5),
+    ("Joseph", "Fellows", 5),
+    ("Rick", "Rogers", 6),
+    ("Nikki", "Farms", 6),
+    ("Maria", "Torres", 7)
+    ("Laura", "Brown", 9),
+    ("Jesse", "James", 7),
+    ("Curtis", "Allen", 8),
+    ("Shelby", "Rodriguez", 9),
+    ("Kelly", "Torrey", 10),
+    ("Nolan", "Ryan", 11),
+    ("JB", "Scott", 12),
+    ("Pax", "Springer", 12),
+    ("Bobby", "Jones", 13),
+    ("Clayton", "Kershaw", 14),
+    ("Mookie", "Bettes", 16),
+    ("Kiki", "Hernandez", 16),
+    ("Will", "Smith", 17),
+    ("Dave", "Roberts", 18),
+    ("Dan", "Sutton", 18),
+    ("Chris", "Taylor", 2),
+    ("Victoria", "Hill", 2),
+    ("Franny", "Labamba", 3),    
+    ("George", "Jones", 5),
+    ("Michael", "Irvin", 7),
+    ("Joc", "Peterson", 5),
+    ("Andrew", "Heaney", 7),
+    ("Kara", "Lux", 15);
 
 
 -- VALUES
