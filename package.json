@@ -1,0 +1,25 @@
+{
+  "name": "12-mysql-mgmt-query",
+  "version": "1.0.0",
+  "description": "This is a mySQL project using various queries to obtain relative information.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CanRo2B/12-mySQL-Mgmt-query.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CanRo2B/12-mySQL-Mgmt-query/issues"
+  },
+  "homepage": "https://github.com/CanRo2B/12-mySQL-Mgmt-query#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  }
+}

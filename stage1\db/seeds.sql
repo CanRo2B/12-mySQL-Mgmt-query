@@ -3,7 +3,7 @@ CREATE DATABASE employees_db;
 --Why do we need to put the command "USE" here?
 USE employees_db;
 -- We insert the entries into the department
-CREATE TABLE department
+INSERT INTO department
     (dept_name)
 VALUES
     ("Operations"),
@@ -56,7 +56,7 @@ VALUES
     ("Joseph", "Fellows", 5),
     ("Rick", "Rogers", 6),
     ("Nikki", "Farms", 6),
-    ("Maria", "Torres", 7)
+    ("Maria", "Torres", 7),
     ("Laura", "Brown", 9),
     ("Jesse", "James", 7),
     ("Curtis", "Allen", 8),
