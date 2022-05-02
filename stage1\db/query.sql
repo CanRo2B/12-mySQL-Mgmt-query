@@ -12,7 +12,13 @@ JOIN department ON role.department_id = department.dept_id;
 
 
 --Select All Employees, (employee id, first name, last name, job title, department, salary and manager)
-SELECT employee.employ_id, employee.first_name, employee.last_name, role.title, department.dept_name, role.salary
+SELECT employee.employ_id AS ID, employee.first_name AS "First Name", employee.last_name AS "Last Name", role.title AS Title, department.dept_name AS Department, role.salary AS Salary
 FROM employee
 JOIN role ON employee.role_id = role.role_id
-JOIN department ON department.dept_id  = role.department_id;
+JOIN department ON role.department_id = department.dept_id;
+
+
+-- SELECT employee.employ_id, employee.first_name, employee.last_name, role.title, department.dept_name, role.salary
+-- FROM employee
+-- JOIN role ON employee.role_id = role.role_id
+-- JOIN department ON department.dept_id  = role.department_id;
