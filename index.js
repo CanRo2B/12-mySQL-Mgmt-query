@@ -90,29 +90,36 @@ function quit() {
 
 
 const findAllEmployees = () => {
-    console.log("test")
-    db.query(`SELECT employee.employ_id AS ID, employee.first_name AS "First Name", employee.last_name AS "Last Name", role.title AS Title, department.dept_name AS Department, role.salary AS Salary
+    db.query(`SELECT employee.employ_id AS ID, employee.first_name AS "FIRST NAME", employee.last_name AS "LAST NAME", role.title AS TITLE, department.dept_name AS Department, role.salary AS Salary
     FROM employee
     JOIN role ON employee.role_id = role.role_id
     JOIN department ON role.department_id = department.dept_id;`, function(err, results){
+        console.log("\n");
         console.table(results);
+        mainMenu();
     })
 };
 
 const findDepartments = () => {
-    db.query(`SELECT dept_name AS Department, dept_id AS ID
+    db.query(`SELECT dept_name AS DEPARTMENT, dept_id AS ID
     FROM department;`, function(err, results){
-        console.table(results);
+        console.log("\n");
+        console.table(results
+            );
+        mainMenu();
     });
+    
 };
 
 const findRoles = () => {
-    db.query(`SELECT role.title, role.role_id, department.dept_name, role.salary
+    db.query(`SELECT role.title AS TITLE, role.role_id AS "ROLE ID", department.dept_name AS DEPARTMENT, role.salary AS SALARY
     FROM role
     JOIN department ON role.department_id = department.dept_id;`, function(err, results){
+        console.log("\n");
         console.table(results);
+        mainMenu();
     });
-    mainMenu();
+   
 };
 
 const addDepartment = () => {
@@ -134,6 +141,29 @@ const addDepartment = () => {
     mainMenu();
 })
 };
+
+const addRole = () => {
+    prompt ([
+        {
+        type: "list",
+        name: "newRole",
+        message: "What department would you like to add the ROLE to:",
+        choices: ["Operations",
+                    "Engineering",
+                    "Human Resources",
+                    "Sales",
+                    "Accounting"]
+        }, {
+            type: "input",
+            name: "newSalary",
+            message: "Please enter the Salary value for the new department"
+        },  {
+            type: "input",
+            name: "newRoleName",
+            message: "Please enter the name of the new ROLE:"
+        }
+    ])
+}
 
 const addEmployee = () => {
     db.query(``);
