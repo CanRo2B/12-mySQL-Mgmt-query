@@ -19,6 +19,7 @@
   "homepage": "https://github.com/CanRo2B/12-mySQL-Mgmt-query#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.3"
   }

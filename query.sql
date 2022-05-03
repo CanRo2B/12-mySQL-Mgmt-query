@@ -22,3 +22,4 @@ JOIN department ON role.department_id = department.dept_id;
 -- FROM employee
 -- JOIN role ON employee.role_id = role.role_id
 -- JOIN department ON department.dept_id  = role.department_id;
+
