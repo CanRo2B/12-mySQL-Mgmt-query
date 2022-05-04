@@ -20,7 +20,7 @@ The Unit 12 mySQL Management Query project is a node.js command line project to 
 The query is ran through node.js with node index.js or npm start to run the prompt questions.  Each prompt has a JavaScript function to run the mySQL queries to obtain the User wanted information.  
 
 ## Video Link
-[Video Link]()
+[Video Link](https://drive.google.com/file/d/1NhU6GKGb7nMnl02ndttx1KbpHiFRSIWk/view?usp=sharing)
 
 ## Credits
 A HUGE Shout Out to TA Veronica for helping me reconfigure my computer AND a great startup.  I would also need to recognize John H for the help on the add functions and the rest of the Discord UCF chat group.  

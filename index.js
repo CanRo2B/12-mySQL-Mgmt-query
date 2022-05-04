@@ -1,4 +1,5 @@
-const { prompt } =  require("inquirer");
+const inquirer =  require("inquirer");
+const connection = require("../12-mySQL-Mgmt-query/connection.js");
 const db = require("../12-mySQL-Mgmt-query/connection.js");
 require("console.table");
 
@@ -6,7 +7,7 @@ mainMenu();
 
 // Inquirer here
 function mainMenu() {
-    prompt([
+    inquirer.prompt([
         {
             type: "list",
             name: "choice",
@@ -25,6 +26,8 @@ function mainMenu() {
                     name: "Add Employee",
                     // value: "ADD_EMPLOYEE"
                 }, {
+                    name: "Add Role",
+                },  {
                     name: "Add Department",
                     // value: "ADD_DEPARTMENT"
                 }, {
@@ -51,42 +54,13 @@ function mainMenu() {
        if (res.choice === "Add Employee") {
            addEmployee();
         }
+        if (res.choice === "Add Role") {
+            addRole();
+        }
        if (res.choice === "Add Department") {
             addDepartment();
        }
-    
-        // Now we call the appropriate function depending on what the user chooses
-        // How would we organize this? 
-        // if conditional, ideas can be either a switch case  or when 
     })
-}
-                // View Employees
-                // View Departments
-                // View Roles
-                // Add Employee
-                // Add Department
-                // Update Employee role
-// Conditional statement here- call corresponding function
-
-async function viewEmployees() {
-    let employees = await db.findAllEmployees();
-    console.table(employees); 
-}
-
-function viewEmployees() {
-    db.findAllEmployees()
-    .then(([rows]) => {
-        let employees = rows;
-        console.log("/n");
-        console.table(employees)
-    })
-    .then(() => mainMenu());
-}
-
-function quit() {
-    console.log("Goodbye!");
-    process.exit();
-};
 
 
 const findAllEmployees = () => {
@@ -104,8 +78,7 @@ const findDepartments = () => {
     db.query(`SELECT dept_name AS DEPARTMENT, dept_id AS ID
     FROM department;`, function(err, results){
         console.log("\n");
-        console.table(results
-            );
+        console.table(results);
         mainMenu();
     });
     
@@ -123,7 +96,7 @@ const findRoles = () => {
 };
 
 const addDepartment = () => {
-    prompt ([ 
+    inquirer.prompt ([ 
         {
         type: "input",
         name: "newDepartment",
@@ -137,34 +110,55 @@ const addDepartment = () => {
         VALUES ("${newDept}")`);
         console.log(`${newDept} department added.`);
         console.log("\n");
-        console.table(results);
+        console.table(res);
     mainMenu();
 })
 };
 
 const addRole = () => {
-    prompt ([
+    const findDepartments = [];
+    db.query("SELECT dept_name FROM department", (err, result) => {
+        if (err) throw err;
+        let findDepartments = result.map((result) => result.dept_name)
+        // result.forEach(department => {
+        //     let deptObj = {
+        //         name: department.name,
+        //         value: department.dept_id
+        //     }
+        //     findDepartments.push(deptObj);
+        // });
+        const deptQuestions = [
         {
-        type: "list",
-        name: "newRole",
-        message: "What department would you like to add the ROLE to:",
-        choices: ["Operations",
-                    "Engineering",
-                    "Human Resources",
-                    "Sales",
-                    "Accounting"]
-        }, {
             type: "input",
-            name: "newSalary",
-            message: "Please enter the Salary value for the new department"
+            name: "title",
+            message: "Please enter the name of the new ROLE:"
         },  {
             type: "input",
-            name: "newRoleName",
-            message: "Please enter the name of the new ROLE:"
+            name: "salary",
+            message: "Please enter the Salary value for the new department"
+        },  {
+            type: "list",
+            name: "dept_name",
+            message: "What department would you like to add the ROLE to:",
+            choices: findDepartments
+            
+            }
+    ];
+    inquirer.prompt(deptQuestions)
+    .then(res => {
+        db.query = `INSERT INTO role (title, salary, department_id) VALUES (?, ? , ? )`;
+        [response.title, response.salary, response.department], (err, res) => {
+        if (err) throw err;
+        console.log(`Added ${res.title} role at  ${res.dept_name}`);
+        mainMenu();
         }
-    ])
+    })
+    });
 }
+
+
 
 const addEmployee = () => {
     db.query(``);
+}
 }
